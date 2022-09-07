@@ -15,4 +15,13 @@ router.get('/', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  db.deleteBandById(id)
+    .then(() => res.sendStatus(200))
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
 module.exports = router
