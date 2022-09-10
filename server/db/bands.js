@@ -1,5 +1,9 @@
 const connection = require('./connection')
 
+function addBand(band, db = connection) {
+  return db('bands').insert(band)
+}
+
 function getBands(db = connection) {
   return db('bands').select()
 }
@@ -14,4 +18,5 @@ function deleteBandById(bandId, db = connection) {
 module.exports = {
   getBands,
   deleteBandById,
+  addBand,
 }

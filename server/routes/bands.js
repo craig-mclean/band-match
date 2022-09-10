@@ -15,6 +15,19 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+  const band = req.body
+  db.addBand(band)
+    .then((results) => {
+      res.json({ results })
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
+// Do we need to check for if the ID doesn't exist?
 router.delete('/:id', (req, res) => {
   const id = req.params.id
   db.deleteBandById(id)

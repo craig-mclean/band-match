@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 //import { fetchFruits, fetchBands } from '../actions'
 
 import Bands from './Bands'
+import AddBand from './AddBand'
 //import Fruits from './Fruits'
 
 function App() {
   return (
     <div>
+      <AddBand />
       <Bands />
       {/* <Fruits /> */}
     </div>

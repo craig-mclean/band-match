@@ -1,7 +1,8 @@
 import { getFruits } from '../apis/fruits'
-import { getBands, delBand } from '../apis/bands'
+import { addBand, getBands, deleteBandById } from '../apis/bands'
 
 export const SET_FRUITS = 'SET_FRUITS'
+export const ADD_BAND = 'ADD_BAND'
 export const SET_BANDS = 'SET_BANDS'
 export const DELETE_BAND = 'DELETE_BAND'
 
@@ -12,17 +13,7 @@ export function deleteBand(band) {
   }
 }
 
-//fancy actions - this works with deleteBand
-export function removeBand(band) {
-  return (dispatch) => {
-    return delBand(1).then(() => {
-      //need to write delBand in api
-      dispatch(deleteBand(band))
-    })
-  }
-}
-
-// simple action
+// simple actions
 export function setBands(bands) {
   return {
     type: SET_BANDS,
@@ -30,7 +21,29 @@ export function setBands(bands) {
   }
 }
 
-//fancy action
+export function createBand(id, name, genre, size) {
+  return {
+    type: ADD_BAND,
+    payload: { id, name, genre, size },
+  }
+}
+
+export function setFruits(fruits) {
+  return {
+    type: SET_FRUITS,
+    payload: fruits,
+  }
+}
+
+//fancy actions
+export function removeBand(bandId) {
+  return (dispatch) => {
+    return deleteBandById(bandId).then(() => {
+      dispatch(deleteBand(bandId))
+    })
+  }
+}
+
 export function fetchBands() {
   return (dispatch) => {
     return getBands().then((bands) => {
@@ -39,10 +52,11 @@ export function fetchBands() {
   }
 }
 
-export function setFruits(fruits) {
-  return {
-    type: SET_FRUITS,
-    payload: fruits,
+export function addNewBand(id, name, genre, size) {
+  return (dispatch) => {
+    return addBand(id, name, genre, size).then((bands) => {
+      dispatch(createBand(bands))
+    })
   }
 }
 

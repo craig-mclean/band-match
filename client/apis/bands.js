@@ -8,7 +8,17 @@ export function getBands() {
   })
 }
 
-export function delBand(id) {
+export function addBand(id, name, genre, size) {
+  console.log('api url:', rootUrl + '/bands/addBand')
+  return request
+    .post(rootUrl + '/bands/addBand')
+    .send({ id, name, genre, size })
+    .then((res) => {
+      return res.body
+    })
+}
+
+export function deleteBandById(id) {
   console.log('delBand route:', `/bands/${id}`)
   return request
     .del(rootUrl + '/bands/' + id)
