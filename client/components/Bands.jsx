@@ -6,7 +6,7 @@ import { fetchBands } from '../actions/index'
 function Bands() {
   const bands = useSelector((state) => state.bands)
   const dispatch = useDispatch()
-
+  console.log('Bands.jsx - bands = ', bands)
   // useEffect will run whenever the page renders. This will be on the initial page render and then
   // whenever there is a change of state, as under react, this causes a re-render.
 
@@ -23,11 +23,11 @@ function Bands() {
 
   return (
     <div>
-      <h1>Bands</h1>
+      <h1 className="title">Bands</h1>
       <ul>
         {bands.map((band) => (
-          <li key={band}>
-            <Band name={band} />
+          <li key={band.id}>
+            <Band name={band.name} />
           </li>
         ))}
       </ul>

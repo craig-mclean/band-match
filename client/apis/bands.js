@@ -8,14 +8,18 @@ export function getBands() {
   })
 }
 
-export function addBand(id, name, genre, size) {
-  console.log('api url:', rootUrl + '/bands/addBand')
+export function addBand(name, id, genre_id, size) {
+  console.log('api, name is:', name)
+  console.log('api, id is:', id)
+
   return request
-    .post(rootUrl + '/bands/addBand')
-    .send({ id, name, genre, size })
+    .post(rootUrl + '/bands/add')
+    .send({ name, id, genre_id, size })
     .then((res) => {
+      console.log('bands api - res.body:', res.body)
       return res.body
     })
+    .catch(errorHandler('ADD', rootUrl + `/bands/add`))
 }
 
 export function deleteBandById(id) {

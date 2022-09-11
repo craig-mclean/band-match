@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getBands()
     .then((results) => {
-      res.json({ bands: results.map((band) => band.name) })
+      res.json({ bands: results.map((band) => band) })
     })
     .catch((err) => {
       console.log(err)
@@ -15,11 +15,17 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
   const band = req.body
+  console.log('routes - req.body:', req.body)
   db.addBand(band)
-    .then((results) => {
-      res.json({ results })
+    .then(() => {
+      //const newId=ids[0]  ### if generating new id
+      res.json({ ...band })
+      //res.json({ bands: results.map((band) => band) })
+      //return null // check this
+      //res.json({ band })
+      //console.log('add route - results:', results)
     })
     .catch((err) => {
       console.log(err)

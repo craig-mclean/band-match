@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Bands from './Bands'
 import AddBand from './AddBand'
+
 //import Fruits from './Fruits'
 
 function App() {
@@ -12,7 +13,6 @@ function App() {
     <div>
       <AddBand />
       <Bands />
-      {/* <Fruits /> */}
     </div>
   )
 }

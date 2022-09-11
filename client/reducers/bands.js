@@ -10,9 +10,11 @@ const reducer = (state = initialState, action) => {
     case SET_BANDS:
       return payload
     case ADD_BAND:
+      console.log('reducer - state =', state)
+      console.log('reducer - payload =', payload)
       return [...state, payload]
     case DELETE_BAND:
-      return state.filter((band) => band.id !== action.payload)
+      return state.filter((band) => band.id !== payload)
     default:
       return state
   }

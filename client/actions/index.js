@@ -4,6 +4,7 @@ import { addBand, getBands, deleteBandById } from '../apis/bands'
 export const SET_FRUITS = 'SET_FRUITS'
 export const ADD_BAND = 'ADD_BAND'
 export const SET_BANDS = 'SET_BANDS'
+export const SET_BAND = 'SET_BAND'
 export const DELETE_BAND = 'DELETE_BAND'
 
 export function deleteBand(band) {
@@ -15,16 +16,37 @@ export function deleteBand(band) {
 
 // simple actions
 export function setBands(bands) {
+  console.log('action: setBands bands =', bands)
+
   return {
     type: SET_BANDS,
     payload: bands,
   }
 }
 
-export function createBand(id, name, genre, size) {
+// export function setBand(band) {
+//   console.log('action: setBand band =', band)
+//   return {
+//     type: SET_BAND,
+//     payload: band,
+//   }
+// }
+
+export function createBand({ name, id, genre_id, size }) {
+  console.log('actions - createBand - name:', name)
   return {
     type: ADD_BAND,
-    payload: { id, name, genre, size },
+    payload: { name, id, genre_id, size },
+  }
+}
+
+export function addNewBand(name, id, genre_id, size) {
+  return (dispatch) => {
+    return addBand(name, id, genre_id, size).then((band) => {
+      console.log('addNewBand action - band:', band)
+      // why is band undefined??
+      dispatch(createBand(band))
+    })
   }
 }
 
@@ -52,13 +74,15 @@ export function fetchBands() {
   }
 }
 
-export function addNewBand(id, name, genre, size) {
-  return (dispatch) => {
-    return addBand(id, name, genre, size).then((bands) => {
-      dispatch(createBand(bands))
-    })
-  }
-}
+// export function addNewBand(name, id, genre_id, size) {
+//   return (dispatch) => {
+//     return addBand(name, id, genre_id, size).then((band) => {
+//       console.log('addNewBand action - band:', band)
+//       // why is band undefined??
+//       dispatch(createBand(band))
+//     })
+//   }
+// }
 
 export function fetchFruits() {
   return (dispatch) => {
