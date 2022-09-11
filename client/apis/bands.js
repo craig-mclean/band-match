@@ -16,7 +16,7 @@ export function addBand(name, id, genre_id, size) {
     .post(rootUrl + '/bands/add')
     .send({ name, id, genre_id, size })
     .then((res) => {
-      console.log('bands api - res.body:', res.body)
+      console.log('addBand api - res.body:', res.body)
       return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/bands/add`))

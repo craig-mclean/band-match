@@ -22,10 +22,6 @@ router.post('/add', (req, res) => {
     .then(() => {
       //const newId=ids[0]  ### if generating new id
       res.json({ ...band })
-      //res.json({ bands: results.map((band) => band) })
-      //return null // check this
-      //res.json({ band })
-      //console.log('add route - results:', results)
     })
     .catch((err) => {
       console.log(err)

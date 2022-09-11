@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Band from './Band'
 import { fetchBands } from '../actions/index'
@@ -27,7 +27,12 @@ function Bands() {
       <ul>
         {bands.map((band) => (
           <li key={band.id}>
-            <Band name={band.name} />
+            <Band
+              name={band.name}
+              size={band.size}
+              genre={band.genre_id}
+              id={band.id}
+            />
           </li>
         ))}
       </ul>

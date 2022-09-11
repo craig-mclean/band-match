@@ -25,49 +25,71 @@ export default function AddBand() {
       <h3 className="title">Add Band</h3>
       <div className="box">
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Band Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={handleChange}
-            />
+          <div className="field is-horizontal">
+            <label htmlFor="name" className="label">
+              Band Name:
+            </label>
+            <div className="control">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="e.g Pixies"
+                // className="input is-primary "
+                value={name}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="size">Size:</label>
-            <input
-              type="number"
-              step="1"
-              id="size"
-              name="size"
-              value={size}
-              onChange={handleChange}
-            />
+
+          <div className="field">
+            <label htmlFor="size" className="label">
+              Number of members:
+            </label>
+            <div className="control">
+              <input
+                type="number"
+                step="1"
+                id="size"
+                name="size"
+                value={size}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="genre">Genre:</label>
-            <input
-              type="number"
-              step="1"
-              id="genre"
-              name="genre"
-              value={genre}
-              onChange={handleChange}
-            />
+
+          <div className="field">
+            <label htmlFor="genre" className="label">
+              Genre:
+            </label>
+            <div className="control">
+              <input
+                type="number"
+                step="1"
+                id="genre"
+                name="genre"
+                value={genre}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="id">Id:</label>
-            <input
-              type="number"
-              step="1"
-              id="id"
-              name="id"
-              value={id}
-              onChange={handleChange}
-            />
+
+          <div className="field">
+            <label htmlFor="id" className="label">
+              Id:
+            </label>
+            <div className="control">
+              <input
+                type="number"
+                step="1"
+                id="id"
+                name="id"
+                value={id}
+                onChange={handleChange}
+              />
+            </div>
           </div>
+
           <div className="block">
             <input className="button is-dark is-outlined" type="submit" />
             <button
