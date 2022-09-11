@@ -25,7 +25,7 @@ export default function AddBand() {
       <h3 className="title">Add Band</h3>
       <div className="box">
         <form onSubmit={handleSubmit}>
-          <div className="field is-horizontal">
+          <div className="field">
             <label htmlFor="name" className="label">
               Band Name:
             </label>

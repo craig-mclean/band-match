@@ -23,19 +23,22 @@ function Bands() {
 
   return (
     <div>
-      <h1 className="title">Bands</h1>
-      <ul>
-        {bands.map((band) => (
-          <li key={band.id}>
-            <Band
-              name={band.name}
-              size={band.size}
-              genre={band.genre_id}
-              id={band.id}
-            />
-          </li>
-        ))}
-      </ul>
+      <section className="section">
+        <div className="container">
+          <h3 className="title has-text-centered is-size-4">Bands</h3>
+
+          {bands.map((band) => (
+            <p key={band.id}>
+              <Band
+                name={band.name}
+                size={band.size}
+                genre={band.genre_id}
+                id={band.id}
+              />
+            </p>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }
