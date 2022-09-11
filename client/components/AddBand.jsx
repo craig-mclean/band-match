@@ -23,63 +23,65 @@ export default function AddBand() {
   return (
     <div>
       <h3 className="title">Add Band</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Band Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="size">Size:</label>
-          <input
-            type="number"
-            step="1"
-            id="size"
-            name="size"
-            value={size}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="genre">Genre:</label>
-          <input
-            type="number"
-            step="1"
-            id="genre"
-            name="genre"
-            value={genre}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="id">Id:</label>
-          <input
-            type="number"
-            step="1"
-            id="id"
-            name="id"
-            value={id}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="block">
-          <input className="button is-dark is-outlined" type="submit" />
-          <button
-            className="button is-dark is-outlined"
-            onClick={(e) => {
-              e.preventDefault()
-              setForm(initialForm)
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+      <div className="box">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">Band Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="size">Size:</label>
+            <input
+              type="number"
+              step="1"
+              id="size"
+              name="size"
+              value={size}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="genre">Genre:</label>
+            <input
+              type="number"
+              step="1"
+              id="genre"
+              name="genre"
+              value={genre}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="id">Id:</label>
+            <input
+              type="number"
+              step="1"
+              id="id"
+              name="id"
+              value={id}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="block">
+            <input className="button is-dark is-outlined" type="submit" />
+            <button
+              className="button is-dark is-outlined"
+              onClick={(e) => {
+                e.preventDefault()
+                setForm(initialForm)
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
