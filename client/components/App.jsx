@@ -21,11 +21,11 @@ function App() {
       </nav>
 
       {/* hero section--------------------*/}
-      <section className="hero is-primary">
+      <section className="hero is-black">
         <div className="hero-body">
           <div className="container">
             <h1 className="title is-1">Band-Match</h1>
-            <h2 className="subtitle">Linking bands with venues!</h2>
+            <h2 className="subtitle">Bringing bands and venues together!</h2>
           </div>
         </div>
       </section>
