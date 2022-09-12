@@ -30,6 +30,21 @@ export function deleteBandById(id) {
     .catch(errorHandler('DELETE', rootUrl + `/bands/${id}`))
 }
 
+// Update/Change Band
+export function changeBand(band) {
+  const id = band.id
+  return (
+    request
+      .patch(rootUrl + `/band/edit/${id}`)
+      // .patch(rootUrl + `/band/edit`)
+      .send({ band })
+      .then((res) => {
+        res.body
+      })
+      .catch(errorHandler('PATCH', rootUrl + `/band/edit/${id}`))
+  )
+}
+
 function errorHandler(method, route) {
   return (err) => {
     if (err.message === 'Not Found') {

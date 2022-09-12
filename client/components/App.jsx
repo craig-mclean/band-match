@@ -23,14 +23,16 @@ function App() {
       {/* hero section--------------------*/}
       <section className="hero is-black">
         <div className="hero-body">
-          <div className="container">
+          <div className="container ">
             <h1 className="title is-1">Band-Match</h1>
             <h2 className="subtitle">Bringing bands and venues together!</h2>
           </div>
         </div>
       </section>
-      <AddBand />
-      <Bands />
+      <div className="container is-fluid">
+        <AddBand />
+        <Bands />
+      </div>
     </div>
   )
 }

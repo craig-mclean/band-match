@@ -1,16 +1,24 @@
 import React from 'react'
-// import { useDispatch } from 'react-redux'
-// import { setBands, fetchBands } from '../actions/index'
+import { useDispatch } from 'react-redux'
+import { removeBand, editBand } from '../actions/index'
 
 function Band(props) {
-  function handleClick() {}
-
   const band = props.name
   const size = props.size
   const genre = props.genre
-  //const id = props.id
-  console.log('Band.jsx - Props:', props)
-  //console.log('Band.jsx - id:', id)
+  const id = props.id
+  const dispatch = useDispatch()
+
+  function clickedCancel() {
+    console.log('trying to delete this band:', props)
+    dispatch(removeBand(id))
+  }
+
+  function clickedEdit() {
+    console.log('trying to edit this band:', props)
+    dispatch(editBand(props))
+  }
+
   return (
     <div className="columns">
       {/* columns --------------------*/}
@@ -21,13 +29,20 @@ function Band(props) {
             <p className="subtitle is-6">Genre of music: {genre}</p>
             <div className="content align-left">Number of members: {size}</div>
             <footer className="card-footer">
-              <button className="button is-dark is-outlined">Edit</button>
+              {/* <form onSubmit={handleSubmit}> */}
               <button
                 className="button is-dark is-outlined"
-                onClick={handleClick()}
+                onClick={clickedEdit}
+              >
+                Edit
+              </button>
+              <button
+                className="button is-dark is-outlined"
+                onClick={clickedCancel}
               >
                 Delete
               </button>
+              {/* </form> */}
             </footer>
           </div>
         </div>

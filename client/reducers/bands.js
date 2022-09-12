@@ -1,4 +1,4 @@
-import { ADD_BAND, SET_BANDS, DELETE_BAND } from '../actions'
+import { ADD_BAND, UPDATE_BAND, SET_BANDS, DELETE_BAND } from '../actions'
 
 const initialState = []
 
@@ -9,6 +9,8 @@ const reducer = (state = initialState, action) => {
   switch (type) {
     case SET_BANDS:
       return payload
+    case UPDATE_BAND:
+      return [...state, payload]
     case ADD_BAND:
       console.log('reducer - state =', state)
       console.log('reducer - payload =', payload)
