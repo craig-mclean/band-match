@@ -34,7 +34,7 @@ export default function AddBand() {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="e.g Pixies"
+                placeholder="Enter your band name"
                 // className="input is-primary "
                 value={name}
                 onChange={handleChange}
@@ -49,6 +49,7 @@ export default function AddBand() {
             <div className="control">
               <input
                 type="number"
+                placeholder="How big is your band?"
                 step="1"
                 id="size"
                 name="size"

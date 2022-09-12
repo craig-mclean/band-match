@@ -24,14 +24,6 @@ export function setBands(bands) {
   }
 }
 
-// export function setBand(band) {
-//   console.log('action: setBand band =', band)
-//   return {
-//     type: SET_BAND,
-//     payload: band,
-//   }
-// }
-
 export function createBand({ name, id, genre_id, size }) {
   console.log('actions - createBand - name:', name)
   return {
