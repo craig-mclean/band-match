@@ -29,6 +29,18 @@ router.post('/add', (req, res) => {
     })
 })
 
+router.patch('/band/edit/:id', (req, res) => {
+  const updatedBand = req.body
+  db.changeBand(updatedBand)
+    .then(() => {
+      return db.selectBandById(updatedBand.id)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
 // Do we need to check for if the ID doesn't exist?
 router.delete('/:id', (req, res) => {
   const id = req.params.id

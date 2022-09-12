@@ -22,8 +22,8 @@ export default function AddBand() {
 
   return (
     <div>
-      <h3 className="title">Add Band</h3>
       <div className="box">
+        <h3 className="title">Add Band</h3>
         <form onSubmit={handleSubmit}>
           <div className="field">
             <label htmlFor="name" className="label">

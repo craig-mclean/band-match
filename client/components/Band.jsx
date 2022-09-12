@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { removeBand } from '../actions/index'
+import { removeBand, editBand } from '../actions/index'
 
 function Band(props) {
   const band = props.name
@@ -9,20 +9,16 @@ function Band(props) {
   const id = props.id
   const dispatch = useDispatch()
 
-  function handleClick() {
+  function clickedCancel() {
     console.log('trying to delete this band:', props)
     dispatch(removeBand(id))
   }
 
-  // function handleSubmit(e) {
-  //   e.preventDefault()
-  //   console.log('submit')
-  //   //dispatch(updateWombat(wombat, form.name))
-  //   //setForm(initialData)
-  // }
+  function clickedEdit() {
+    console.log('trying to edit this band:', props)
+    dispatch(editBand(props))
+  }
 
-  //console.log('Band.jsx - Props:', props)
-  //console.log('Band.jsx - id:', id)
   return (
     <div className="columns">
       {/* columns --------------------*/}
@@ -34,10 +30,15 @@ function Band(props) {
             <div className="content align-left">Number of members: {size}</div>
             <footer className="card-footer">
               {/* <form onSubmit={handleSubmit}> */}
-              <button className="button is-dark is-outlined">Edit</button>
               <button
                 className="button is-dark is-outlined"
-                onClick={handleClick}
+                onClick={clickedEdit}
+              >
+                Edit
+              </button>
+              <button
+                className="button is-dark is-outlined"
+                onClick={clickedCancel}
               >
                 Delete
               </button>

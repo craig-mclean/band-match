@@ -11,15 +11,22 @@ function getBands(db = connection) {
   return db('bands').select()
 }
 
+function getBandById(id, db = connection) {
+  return db('bands').select().where('id', id)
+}
+
 function deleteBandById(bandId, db = connection) {
   return db('bands').delete().where('id', bandId)
 }
 
-// function getBands(db = connection) {
-//   return db('bands').select()
-// }
+function changeBand(band, db = connection) {
+  return db('bands').update(band).where('id', band.id)
+}
+
 module.exports = {
   getBands,
   deleteBandById,
   addBand,
+  changeBand,
+  getBandById,
 }

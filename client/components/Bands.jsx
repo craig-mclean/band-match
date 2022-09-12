@@ -25,7 +25,7 @@ function Bands() {
     <div>
       <section className="section">
         <div className="container">
-          <h3 className="title has-text-centered is-size-4">Bands</h3>
+          <h3 className="title has-text-left is-size-3">List of bands</h3>
 
           {bands.map((band) => (
             <div key={band.id}>
