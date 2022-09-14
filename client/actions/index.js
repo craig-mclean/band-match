@@ -46,7 +46,7 @@ export function createBand({ name, id, genre_id, size }) {
 }
 
 // ------------------------------------------------------------
-// EDITING AN EXISTING BAND
+// EDITING AN EXISTING BAND *** still a work in progress.  Needs a form at front end.
 
 export function editBand(band) {
   return (dispatch) => {
