@@ -1,27 +1,19 @@
 const request = require('supertest')
-const { screen } = require('@testing-library/dom')
 const server = require('../../server')
-const db = require('../../db/bands')
-const { getBands } = require('../../db/bands')
 
-require('@testing-library/jest-dom')
+const { getBands } = require('../../db/bands')
 
 jest.mock('../../db/bands')
 
-// describe('GET /bands', (req, res) => {
-//   it('renders all the bands', () => {
-//     return request(server)
-//       .get('/bands')
-//       .then((response) => {
-//         console.log(response.text)
-//         expect(1).toBe(2)
-//       })
-//   })
-// })
+jest.spyOn(console, 'error')
 
-describe('GET /bands', () => {
+afterEach(() => {
+  console.error.mockReset()
+})
+
+describe('GET /api/v1/bands', () => {
   it('renders all the bands', () => {
-    db.getBands.mockReturnValue(
+    getBands.mockReturnValue(
       Promise.resolve([
         { id: 10101, name: 'The Trainsurfers', genre_id: 3, size: 3 },
         { id: 20202, name: 'Good Days', genre_id: 2, size: 4 },
@@ -30,14 +22,21 @@ describe('GET /bands', () => {
     return request(server)
       .get('/api/v1/bands/')
       .then((response) => {
-        //
-        //document.body.innerHTML = response.text
-        // let heading = screen.getAllByRole('heading')
         const bands = response.body.bands
-        expect(1).toBe(1)
+        //expect(1).toBe(2) // check that plumbing works with a failing test
         expect(bands).toHaveLength(2)
         expect(bands[0].name).toBe('The Trainsurfers')
-        //expect(listitems[1]).toHaveTextContent('Good Days')
+      })
+  })
+  it('return status 500 and consoles error when problem', () => {
+    getBands.mockImplementation(() => Promise.reject(new Error('did not work')))
+    console.error.mockImplementation(() => {})
+    return request(server)
+      .get('/api/v1/bands')
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(console.error).toHaveBeenCalledWith('did not work')
+        return null
       })
   })
 })
