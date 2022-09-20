@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
       res.json({ bands: results.map((band) => band) })
     })
     .catch((err) => {
-      console.log(err)
+      console.error(err)
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
@@ -24,7 +24,7 @@ router.post('/add', (req, res) => {
       res.json({ ...band })
     })
     .catch((err) => {
-      console.log(err)
+      console.error(err)
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
@@ -36,7 +36,7 @@ router.patch('/band/edit/:id', (req, res) => {
       return db.selectBandById(updatedBand.id)
     })
     .catch((err) => {
-      console.log(err)
+      console.error(err)
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
@@ -47,7 +47,7 @@ router.delete('/:id', (req, res) => {
   db.deleteBandById(id)
     .then(() => res.sendStatus(200))
     .catch((err) => {
-      console.log(err)
+      console.error(err)
       res.status(500).json({ message: 'Something went wrong' })
     })
 })

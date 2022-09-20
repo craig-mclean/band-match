@@ -1,7 +1,7 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex('bands')
-    .del()
+    .truncate() // knex populates this with .delete by default, but truncate is better (resets the id)
     .then(function () {
       // Inserts seed entries
       return knex('bands').insert([
