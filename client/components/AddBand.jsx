@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
 import { addNewBand } from '../actions/index'
+
 const initialForm = { name: '', id: '', size: '', genre: '' }
 
 export default function AddBand() {
   const dispatch = useDispatch()
 
   const [form, setForm] = useState(initialForm)
-  const { name, id, size, genre } = form
+  const { name, size, genre } = form
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -15,8 +17,8 @@ export default function AddBand() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    //console.log('Form data:', form)
-    dispatch(addNewBand(name, id, genre, size))
+    let uuid = uuidv4()
+    dispatch(addNewBand(name, uuid, genre, size))
     setForm(initialForm)
   }
 
@@ -75,7 +77,7 @@ export default function AddBand() {
             </div>
           </div>
 
-          <div className="field">
+          {/* <div className="field">
             <label htmlFor="id" className="label">
               Id:
             </label>
@@ -89,7 +91,7 @@ export default function AddBand() {
                 onChange={handleChange}
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="block">
             <input className="button is-dark is-outlined" type="submit" />
