@@ -75,7 +75,7 @@ export default function AddBand() {
             </div>
           </div>
 
-          {/* <div className="field">
+          <div className="field">
             <label htmlFor="id" className="label">
               Id:
             </label>
@@ -89,7 +89,7 @@ export default function AddBand() {
                 onChange={handleChange}
               />
             </div>
-          </div> */}
+          </div>
 
           <div className="block">
             <input className="button is-dark is-outlined" type="submit" />
