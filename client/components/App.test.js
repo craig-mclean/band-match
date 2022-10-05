@@ -10,7 +10,7 @@ jest.mock('../actions')
 
 fetchFruits.mockImplementation(() => () => {})
 
-test('page header includes fruit', () => {
+test.skip('page header includes fruit', () => {
   render(
     <Provider store={store}>
       <App />
@@ -20,7 +20,7 @@ test('page header includes fruit', () => {
   expect(heading.innerHTML).toMatch(/Fruit/)
 })
 
-test('renders an <li> for each fruit', () => {
+test.skip('renders an <li> for each fruit', () => {
   const fruits = ['orange', 'persimmons', 'kiwi fruit']
   jest.spyOn(store, 'getState')
   store.getState.mockImplementation(() => ({ fruits }))
@@ -34,7 +34,7 @@ test('renders an <li> for each fruit', () => {
   expect(li).toHaveLength(3)
 })
 
-test('dispatches fetchFruits action', () => {
+test.skip('dispatches fetchFruits action', () => {
   render(
     <Provider store={store}>
       <App />

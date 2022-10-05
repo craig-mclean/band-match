@@ -23,10 +23,14 @@ function changeBand(band, db = connection) {
   return db('bands').update(band).where('id', band.id)
 }
 
+function close(db = connection) {
+  return db.destroy()
+}
 module.exports = {
   getBands,
   deleteBandById,
   addBand,
   changeBand,
   getBandById,
+  close,
 }
