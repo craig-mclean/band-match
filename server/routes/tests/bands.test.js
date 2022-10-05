@@ -5,6 +5,7 @@ const { getBands } = require('../../db/bands')
 
 jest.mock('../../db/bands')
 
+// this is used for the 'sad' test 
 jest.spyOn(console, 'error')
 
 afterEach(() => {

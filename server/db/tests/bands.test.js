@@ -19,15 +19,8 @@ afterAll(() => {
 describe('getBands', () => {
   it('returns all 4 records in the seeded bands table', () => {
     return getBands(testDb).then((data) => {
+      console.log('test', data)
       expect(data).toHaveLength(4)
     })
   })
 })
-
-// describe('getBands', () => {
-//   it('returns all 4 records in the seeded bands table', () => {
-//     return getBands(testDb).then((data) => {
-//       expect(data).toHaveLength(4)
-//     })
-//   })
-// })
