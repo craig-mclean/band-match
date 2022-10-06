@@ -77,22 +77,6 @@ export default function AddBand() {
             </div>
           </div>
 
-          {/* <div className="field">
-            <label htmlFor="id" className="label">
-              Id:
-            </label>
-            <div className="control">
-              <input
-                type="number"
-                step="1"
-                id="id"
-                name="id"
-                value={id}
-                onChange={handleChange}
-              />
-            </div>
-          </div> */}
-
           <div className="block">
             <input className="button is-dark is-outlined" type="submit" />
             <button
