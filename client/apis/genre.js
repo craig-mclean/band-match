@@ -2,14 +2,20 @@ import request from 'superagent'
 
 const rootUrl = '/api/v1'
 
+export function getGenres() {
+  return request.get(rootUrl + '/genre').then((res) => {
+    return res.body
+  })
+}
+
 // get a Genre by id
 export function getGenreById(id) {
   //console.log('apis/genre.js - id:', id)
   return request
     .get(rootUrl + `/genre/${id}`)
     .then((res) => {
-      console.log('apis/genre.js - id:', id)
-      return res.body.id
+      //console.log('apis/genre.js - id:', id)
+      return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/genre/${id}`))
 }

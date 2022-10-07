@@ -9,6 +9,14 @@ function Band(props) {
   const id = props.id
   const dispatch = useDispatch()
 
+  // *** see Food Funeral / client/components/Post.jsx
+  // --- Need to dispatch a function that calls the getGenreById api/route/db
+  // --- and returns the name of the genre.
+  // --- So ... need to set up the actions / reducer / etc etc
+  // useEffect(() => {
+  //   dispatch(getGenre(id))
+  // }, [])
+
   function clickedCancel() {
     console.log('trying to delete this band:', props)
     dispatch(removeBand(id))

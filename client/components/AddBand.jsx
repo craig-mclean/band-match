@@ -1,15 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 import { addNewBand } from '../actions/index'
+import { getGenres } from '../apis/genre'
 
 const initialForm = { name: '', id: '', size: '', genre: '' }
 
 export default function AddBand() {
   const dispatch = useDispatch()
 
+  const [genres, setGenres] = useState([])
   const [form, setForm] = useState(initialForm)
   const { name, size, genre } = form
+
+  // Get the list of genres from the db and store them in state as 'genres'
+  useEffect(() => {
+    return getGenres().then((allGenres) => {
+      setGenres(allGenres)
+    })
+  }, [])
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -61,7 +70,30 @@ export default function AddBand() {
             </div>
           </div>
 
+          {/* --------------------------------- */}
+          {/* -- TODO: Sort out genre lookup -- */}
+          {/* --------------------------------- */}
           <div className="field">
+            <select
+              id="genre"
+              name="genre"
+              defaultValue=""
+              onChange={handleChange}
+              required
+            >
+              <option value="" disabled>
+                Choose genre
+              </option>
+              {genres.map((genre) => (
+                <option key={genre.id} value={genre.id} title="Choose a genre">
+                  {genre.description}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* ------------ */}
+
+          {/* <div className="field">
             <label htmlFor="genre" className="label">
               Genre:
             </label>
@@ -75,7 +107,7 @@ export default function AddBand() {
                 onChange={handleChange}
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="block">
             <input className="button is-dark is-outlined" type="submit" />
