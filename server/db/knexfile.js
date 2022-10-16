@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       filename: path.join(__dirname, 'dev.sqlite3'),
     },
-    useNullAsDefault: true,
+    useNullAsDefault: true, // This is to get rid of an annoying yellow warning msg that pop up when you run your tests!
   },
 
   test: {

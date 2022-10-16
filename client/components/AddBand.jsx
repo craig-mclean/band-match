@@ -110,7 +110,11 @@ export default function AddBand() {
           </div> */}
 
           <div className="block">
-            <input className="button is-dark is-outlined" type="submit" />
+            <input
+              className="button is-dark is-outlined"
+              type="Submit"
+              value="Save"
+            />
             <button
               className="button is-dark is-outlined"
               onClick={(e) => {
