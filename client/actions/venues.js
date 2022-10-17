@@ -35,7 +35,7 @@ export function addNewVenue(
       website,
       size
     ).then((venue) => {
-      console.log('addNewVenue action - venue name:', name)
+      console.log('addNewVenue action - venue website:', website)
       dispatch(createVenue(venue))
     })
   }
@@ -76,13 +76,46 @@ export function deleteVenue(venue) {
 }
 
 // ------------------------------------------------------------
+// EDITING AN EXISTING VENUE *** still a work in progress.  Needs a form at front end.
+
+export function editVenue(venue) {
+  return (dispatch) => {
+    return changeVenue(venue).then(() => {
+      dispatch(updateVenue(venue))
+    })
+  }
+}
+
+export function updateVenue({
+  id,
+  name,
+  address,
+  contact,
+  email,
+  phone,
+  website,
+  size,
+}) {
+  console.log('actions - updateVenue - name:', name)
+  return {
+    type: UPDATE_VENUE,
+    payload: { id, name, address, contact, email, phone, website, size },
+  }
+}
+
+// ------------------------------------------------------------
 // GET AN EXISTING VENUE
 
 export function fetchVenues() {
   return (dispatch) => {
-    return getVenues().then((venues) => {
-      dispatch(setVenues(venues))
-    })
+    return getVenues()
+      .then((venues) => {
+        console.log('action: fetchVenues venues =', venues)
+        dispatch(setVenues(venues))
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
   }
 }
 

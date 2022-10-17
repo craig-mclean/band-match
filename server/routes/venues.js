@@ -6,9 +6,7 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   db.getVenues()
-    .then((results) => {
-      res.json({ venues: results.map((venue) => venue) })
-    })
+    .then((response) => res.json(response))
     .catch((err) => {
       console.error(err.message)
       res.status(500).json({ message: 'Something went wrong' })

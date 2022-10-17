@@ -3,6 +3,7 @@ import React from 'react'
 
 import Bands from './Bands'
 import AddBand from './AddBand'
+import Venues from './Venues'
 import AddVenue from './AddVenue'
 
 function App() {
@@ -31,9 +32,22 @@ function App() {
         </div>
       </section>
       <div className="container is-fluid">
-        <AddBand />
-        <AddVenue />
-        <Bands />
+        <div className="columns">
+          <div className="column">
+            <AddBand />
+          </div>
+          <div className="column">
+            <AddVenue />
+          </div>
+        </div>
+        <div className="columns">
+          <div className="column">
+            <Bands />
+          </div>
+          <div className="column">
+            <Venues />
+          </div>
+        </div>
       </div>
     </div>
   )

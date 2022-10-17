@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 import { addNewVenue } from '../actions/venues'
@@ -27,7 +27,9 @@ export default function AddVenue() {
   function handleSubmit(e) {
     e.preventDefault()
     let uuid = uuidv4()
-    dispatch(addNewVenue(uuid, name, address, size))
+    dispatch(
+      addNewVenue(uuid, name, address, contact, email, phone, website, size)
+    )
     setForm(initialForm)
   }
 
