@@ -33,9 +33,9 @@ export function addVenue(
 }
 
 export function deleteVenueById(id) {
-  // console.log('delVenue api:', `/venues/${id}`)
+  console.log('delVenue api:', `/venues/${id}`)
   return request
-    .del(rootUrl + '/venue/' + id)
+    .del(rootUrl + '/venues/' + id)
     .then((res) => res)
     .catch(errorHandler('DELETE', rootUrl + `/venues/${id}`))
 }

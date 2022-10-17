@@ -29,7 +29,7 @@ router.post('/add', (req, res) => {
 
 router.patch('/venue/edit/:id', (req, res) => {
   const updatedVenue = req.body
-  db.changeBand(updatedVenue)
+  db.changeVenue(updatedVenue)
     .then(() => {
       return db.selectVenueById(updatedVenue.id)
     })
@@ -42,6 +42,7 @@ router.patch('/venue/edit/:id', (req, res) => {
 // Do we need to check for if the ID doesn't exist?
 router.delete('/:id', (req, res) => {
   const id = req.params.id
+  console.log('routes / venues / delete: id', id)
   db.deleteVenueById(id)
     .then(() => res.sendStatus(200))
     .catch((err) => {
