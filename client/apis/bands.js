@@ -16,14 +16,14 @@ export function addBand(name, id, genre_id, size) {
     .post(rootUrl + '/bands/add')
     .send({ name, id, genre_id, size })
     .then((res) => {
-      console.log('addBand api - res.body:', res.body)
+      // console.log('addBand api - res.body:', res.body)
       return res.body
     })
     .catch(errorHandler('ADD', rootUrl + `/bands/add`))
 }
 
 export function deleteBandById(id) {
-  console.log('delBand route:', `/bands/${id}`)
+  // console.log('delBand api:', `/bands/${id}`)
   return request
     .del(rootUrl + '/bands/' + id)
     .then((res) => res)

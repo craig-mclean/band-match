@@ -3,6 +3,7 @@ import React from 'react'
 
 import Bands from './Bands'
 import AddBand from './AddBand'
+import AddVenue from './AddVenue'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       </section>
       <div className="container is-fluid">
         <AddBand />
+        <AddVenue />
         <Bands />
       </div>
     </div>

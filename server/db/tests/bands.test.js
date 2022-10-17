@@ -1,3 +1,4 @@
+/* eslint-disable promise/no-nesting */
 const knex = require('knex')
 const config = require('../knexfile')
 const testDb = knex(config.test)

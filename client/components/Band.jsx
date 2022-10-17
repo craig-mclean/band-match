@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { removeBand, editBand } from '../actions/index'
+import { removeBand, editBand } from '../actions/bands'
 
 function Band(props) {
   const band = props.name
@@ -17,8 +17,8 @@ function Band(props) {
   //   dispatch(getGenre(id))
   // }, [])
 
-  function clickedCancel() {
-    console.log('trying to delete this band:', props)
+  function clickedDelete() {
+    // console.log('trying to delete this band:', props)
     dispatch(removeBand(id))
   }
 
@@ -46,7 +46,7 @@ function Band(props) {
               </button>
               <button
                 className="button is-dark is-outlined"
-                onClick={clickedCancel}
+                onClick={clickedDelete}
               >
                 Delete
               </button>

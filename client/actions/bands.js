@@ -9,23 +9,6 @@ export const SET_BAND = 'SET_BAND'
 export const DELETE_BAND = 'DELETE_BAND'
 
 // ------------------------------------------------------------
-// DELETING A BAND
-
-export function removeBand(bandId) {
-  return (dispatch) => {
-    return deleteBandById(bandId).then(() => {
-      dispatch(deleteBand(bandId))
-    })
-  }
-}
-export function deleteBand(band) {
-  return {
-    type: DELETE_BAND,
-    payload: band,
-  }
-}
-
-// ------------------------------------------------------------
 // ADDING A NEW BAND
 
 export function addNewBand(name, id, genre_id, size) {
@@ -42,6 +25,23 @@ export function createBand({ name, id, genre_id, size }) {
   return {
     type: ADD_BAND,
     payload: { name, id, genre_id, size },
+  }
+}
+
+// ------------------------------------------------------------
+// DELETING A BAND
+
+export function removeBand(bandId) {
+  return (dispatch) => {
+    return deleteBandById(bandId).then(() => {
+      dispatch(deleteBand(bandId))
+    })
+  }
+}
+export function deleteBand(band) {
+  return {
+    type: DELETE_BAND,
+    payload: band,
   }
 }
 

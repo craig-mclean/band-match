@@ -1,4 +1,9 @@
-import { ADD_BAND, UPDATE_BAND, SET_BANDS, DELETE_BAND } from '../actions/bands'
+import {
+  ADD_VENUE,
+  UPDATE_VENUE,
+  SET_VENUES,
+  DELETE_VENUE,
+} from '../actions/venues'
 
 const initialState = []
 
@@ -7,16 +12,16 @@ const initialState = []
 const reducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
-    case SET_BANDS:
+    case SET_VENUES:
       return payload
-    case UPDATE_BAND:
+    case UPDATE_VENUE:
       return [...state, payload]
-    case ADD_BAND:
+    case ADD_VENUE:
       console.log('reducer - state =', state)
       console.log('reducer - payload =', payload)
       return [...state, payload]
-    case DELETE_BAND:
-      return state.filter((band) => band.id !== payload)
+    case DELETE_VENUE:
+      return state.filter((venue) => venue.id !== payload)
     default:
       return state
   }

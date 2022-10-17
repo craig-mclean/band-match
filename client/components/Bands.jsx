@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Band from './Band'
-import { fetchBands } from '../actions/index'
+import { fetchBands } from '../actions/bands'
 
 function Bands() {
   const bands = useSelector((state) => state.bands)

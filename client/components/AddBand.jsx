@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
-import { addNewBand } from '../actions/index'
+import { addNewBand } from '../actions/bands'
 import { getGenres } from '../apis/genre'
 
 const initialForm = { name: '', id: '', size: '', genre: '' }
@@ -47,6 +47,7 @@ export default function AddBand() {
                 name="name"
                 placeholder="Enter your band name"
                 // className="input is-primary "
+                required
                 value={name}
                 onChange={handleChange}
               />
@@ -64,6 +65,7 @@ export default function AddBand() {
                 step="1"
                 id="size"
                 name="size"
+                required
                 value={size}
                 onChange={handleChange}
               />
@@ -114,6 +116,7 @@ export default function AddBand() {
               className="button is-dark is-outlined"
               type="Submit"
               value="Save"
+              onChange={handleChange}
             />
             <button
               className="button is-dark is-outlined"
