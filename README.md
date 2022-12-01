@@ -17,16 +17,18 @@ Band-Match has been conceived to solve these problems, by helping bands and venu
 Currently it just runs locally, so it's purely hypothetical at this stage.  I'll look at deploying to a server eventually (maybe!)
 
 ## User stories
-I put myself into the shoes of the potential users of Band-Match, to come up with the types of things they might want out of such a system.
+As the Product Owner of Band-Match, I put myself into the shoes of the potential users of the app, to come up with the types of things they might want to use it for.
+
 This is what I have come up with so far ...
-* As a venue, I want to be able to post an event
-* As a band, I want to be able to create a gig wanted post
-* As a venue, I want to be able to search the gig wanted posts to find a band for my event
-* As a band, I want to be able to search the event posts, to find a venue to play at
+
 * As a band, I want to be able to save the details about my band
 * As a venue, I want to be able to save the details about my venue
 * As a band, I want to be able to maintain the details about my band
 * As a venue, I want to be able to maintain the details about my venue
+* As a venue, I want to be able to post an event
+* As a band, I want to be able to create a gig wanted post
+* As a venue, I want to be able to search the gig wanted posts to find a band for my event
+* As a band, I want to be able to search the event posts, to find a venue to play at
 * As a band, I want to be able to advertise for a new band member
 * As a visitor to the site, I want to be able to see a list of gigs that are on for a date range
 * As a visitor, I want to be able to post reviews about events that I've been to
