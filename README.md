@@ -23,15 +23,13 @@ Currently it just runs locally, so it's purely hypothetical at this stage.  I'll
 * Enter 'npm run dev' in to your terminal
 * Open your browser and enter [localhost:3000](localhost:3000) as the url
 
+## Known issues
+* You can add a new venue and it will save to the db, but after that, it is not being rendered by the Venues component.
+
 ## Future enhancements / Backlog
 * Add authentication/user account and logon functionality (e.g. Auth0)
 * Deploy to a server (e.g. Heroku)
-* Set-up and seed venues table
-* Setup getVenues api and route and confirm using Insomnia
-* Use getVenues api and route to render list of Venues
-* Create AddVenue component, with form for adding details for new Venues
-* Setup addVenues api and route and confirm using Insomnia
-* New band is rendered along with existing Venues
+* New venue is rendered along with existing Venues
 * Setup deleteVenues api and route and confirm using Insomnia
 * Design and implement a Navbar
 
