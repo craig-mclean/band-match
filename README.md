@@ -32,5 +32,13 @@ Currently it just runs locally, so it's purely hypothetical at this stage.  I'll
 * New venue is rendered along with existing Venues
 * Setup deleteVenues api and route and confirm using Insomnia
 * Design and implement a Navbar
+* Search for Bands by genre
+* Search for Bands by size
+* Create an Event (linked to a venue) - e.g. venue needs band for this event
+* Create a Gig wanted entry (linked to a band)
+* Sort the band list (by Name, Genre, Size)
+* Link to an external Band Name generator api
+
+
 
 
