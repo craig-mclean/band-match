@@ -1,11 +1,11 @@
-# Band-Match: Bring bands and venues together!
+# Band-Match: Bringing bands and venues together!
 
 ## Purpose
-This is a personal project that I am using to continue practicing the technical skills that I learnt during the DevAcademy bootcamp that I graduated from in October 2022.
+This is a personal project that I am using to continue practicing the technical skills learnt during the DevAcademy Aotearoa bootcamp that I graduated from in October 2022.
 
-It is a full stack app, built with Javascipt, using React/Redux and a sqlite database.
+It is a full stack app, built with Javascipt, using React/Redux and a Sqlite database.
 
-Will probably never be fully functional. Just a place for me to experiment and play!
+Will probably never be fully functional. It's really just a place for me to continue to experiment and play!
 
 
 ## The idea
