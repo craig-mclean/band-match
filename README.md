@@ -1,36 +1,85 @@
-# Boilerplate: Fullstack with Sass
+# Band-Match: Bringing bands and venues together!
 
-## Setup
+## Purpose
+This is a personal project that I am using to continue practicing the technical skills learnt during the DevAcademy Aotearoa bootcamp that I graduated from in October 2022.
 
-### What's included
+It is a full stack app, built by me, using Javascipt, React/Redux and a Sqlite database.
 
-This repo includes:
+Will probably never be fully functional. It's really just a place for me to continue to experiment and play!
 
-* a single, simple API endpoint (`/api/v1/fruits`)
-* a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Jest and testing library
-* configuration for server-side debugging in VS Code
-* configuration for preprocessing Sass
-* a single client-side test (`client/components/App.test.js`)
 
-### Installation
+## The idea
+As a keen muso, I know that it can sometimes be hard for bands to find gigs.
+Conversely, it can be hard for venues to find bands.
 
-#### **From the Github UI**
+Band-Match has been conceived to solve these problems, by helping bands and venues find each other!
 
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
+Currently it just runs locally, so it's purely hypothetical at this stage.  I'll look at deploying to a server eventually (maybe!)
 
-#### **From the command line**
+## User stories
+As the Product Owner of Band-Match, I put myself into the shoes of the potential users of the app, to come up with the types of things they might want to use it for.
 
-```
-git clone https://github.com/dev-academy-challenges/boilerplate-fullstack [your-project-name]
-cd [your-project-name]
-npm install # to install dependencies
-npm run dev # to start the dev server
-```
+This is what I have come up with so far ...
 
-You can find the server running on [http://localhost:3000](http://localhost:3000).
+* As a band, I want to be able to save the details about my band
+* As a venue, I want to be able to save the details about my venue
+* As a band, I want to be able to maintain the details about my band
+* As a venue, I want to be able to maintain the details about my venue
+* As a venue, I want to be able to post an event
+* As a band, I want to be able to create a gig wanted post
+* As a venue, I want to be able to search the gig wanted posts to find a band for my event
+* As a band, I want to be able to search the event posts, to find a venue to play at
+* As a band, I want to be able to advertise for a new band member
+* As a visitor to the site, I want to be able to see a list of gigs that are on for a date range
+* As a visitor, I want to be able to post reviews about events that I've been to
 
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-fullstack-scss)
+## Current functionality
+The application currently has the following features:
+* All the bands currently in the database are displayed, along with any details (e.g. genre, number of members)
+* A form is displayed that can be used to add a new band and save it to the database. 
+* Once a new band is saved, the list of bands is automatically refreshed, to include that new band
+* You can delete a band and it will be removed from the database and the list will refresh, with the deleted band no longer appearing
+* You can add a new Venue and save it to the database
+
+## Known issues
+* Although a new venue can be added from the form and saved to the db, it is not being rendered by the Venues component
+* Rather than displaying the genre for a band, the genre_id is displayed
+
+## Testing
+Testing is a really important skill to develop. I have learnt about how to test different parts of the stack, using Jest, SuperTest, Nock and Testing Library, so I'm trying to practice this here, by implementing different types of tests.
+
+So far I have set up tests for the following:
+
+- Server routes - have used Jest to test the following:
+  - GET route (api/v1/bands) returns the expected bands records
+  - GET route (api/v1/bands) returns a status 500 error when there has been a problem
+
+- Database functions:
+  - getBands - returns the expected records from the seeded band table in the test db 
+  - deleteBandById - successfully deletes the band record that matches the specified id, and only deletes that record
+  - getGenre - returns the expected records from the seeded genre table in the test db 
+
+## Future enhancements / Backlog
+* Testing - lots more testing!
+* New venue is rendered along with existing Venues
+* Setup deleteVenues api and route and confirm using Insomnia
+* Design and implement a Navbar
+* Search for Bands by genre
+* Search for Bands by size
+* Create an Event (linked to a venue) - e.g. venue needs band for this event
+* Create a Gig wanted entry (linked to a band)
+* Sort the band list (by Name, Genre, Size)
+* Link to an external Band Name generator api
+* Add authentication/user account and logon functionality (e.g. Auth0)
+* Deploy to a server (e.g. Heroku)
+
+## Steps to get Band-Match running:
+
+* Clone the code to your local machine and open it in your chosen code editor
+* npm install
+* git checkout -b <branchname>
+* npm run knex migrate:latest
+* npm run knex seed:run
+* npm run dev
+* Open your browser and enter [localhost:3000](localhost:3000) as the url
+
