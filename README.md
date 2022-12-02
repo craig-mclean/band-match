@@ -76,9 +76,10 @@ So far I have set up tests for the following:
 ## Steps to get Band-Match running:
 
 * Clone the code to your local machine and open it in your chosen code editor
-* Open your terminal and enter 'npm install'
-* Enter 'npm run dev' in to your terminal
+* npm install
+* git checkout -b <branchname>
+* npm run knex migrate:latest
+* npm run knex seed:run
+* npm run dev
 * Open your browser and enter [localhost:3000](localhost:3000) as the url
-
-
 
