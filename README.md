@@ -50,14 +50,14 @@ Testing is a really important skill to develop. I have learnt about how to test 
 
 So far I have set up tests for the following:
 
-* Server routes - have used Jest to test the following:
-** GET route (api/v1/bands) returns the expected bands records
-** GET route (api/v1/bands) returns a status 500 error when there has been a problem
+- Server routes - have used Jest to test the following:
+  - GET route (api/v1/bands) returns the expected bands records
+  - GET route (api/v1/bands) returns a status 500 error when there has been a problem
 
-* Database functions:
-** getBands - returns the expected records from the seeded band table in the test db 
-** deleteBandById - successfully deletes the band record that matches the specified id, and only deletes that record
-** getGenre - returns the expected records from the seeded genre table in the test db 
+- Database functions:
+  - getBands - returns the expected records from the seeded band table in the test db 
+  - deleteBandById - successfully deletes the band record that matches the specified id, and only deletes that record
+  - getGenre - returns the expected records from the seeded genre table in the test db 
 
 ## Future enhancements / Backlog
 * Testing - lots more testing!
