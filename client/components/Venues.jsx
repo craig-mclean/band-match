@@ -6,8 +6,8 @@ import { fetchVenues } from '../actions/venues'
 function Venues() {
   const venues = useSelector((state) => state.venues)
   const dispatch = useDispatch()
+  //console.log('Venues.jsx: state =', state)
   console.log('Venues.jsx: venues =', venues)
-
   useEffect(() => {
     dispatch(fetchVenues())
   }, [])
