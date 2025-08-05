@@ -30,10 +30,13 @@ router.post('/add', (req, res) => {
 })
 
 router.patch('/band/edit/:id', (req, res) => {
-  const updatedBand = req.body
+  const updatedBand = req.body.band
   db.changeBand(updatedBand)
     .then(() => {
-      return db.selectBandById(updatedBand.id)
+      return db.getBandById(updatedBand.id)
+    })
+    .then((band) => {
+      res.json(band[0])
     })
     .catch((err) => {
       console.error(err.message)

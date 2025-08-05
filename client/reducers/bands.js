@@ -9,8 +9,10 @@ const reducer = (state = initialState, action) => {
   switch (type) {
     case SET_BANDS:
       return payload
-    case UPDATE_BAND:
-      return [...state, payload]
+      case UPDATE_BAND:
+        return state.map((band) => 
+          band.id === payload.id ? payload : band
+        )
     case ADD_BAND:
       console.log('reducer - state =', state)
       console.log('reducer - payload =', payload)

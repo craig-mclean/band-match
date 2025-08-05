@@ -5,7 +5,7 @@ import {
   DELETE_VENUE,
 } from '../actions/venues'
 
-const initialState = ['']
+const initialState = []
 
 // A reducer takes the current 'state' and the 'action' as arguments ...
 // ... it then returns a **new state**

@@ -48,8 +48,8 @@ export function deleteBand(band) {
 
 export function editBand(band) {
   return (dispatch) => {
-    return changeBand(band).then(() => {
-      dispatch(updateBand(band))
+    return changeBand(band).then((updatedBand) => {
+      dispatch(updateBand(updatedBand))
     })
   }
 }

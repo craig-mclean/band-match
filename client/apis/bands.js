@@ -33,16 +33,13 @@ export function deleteBandById(id) {
 // Update/Change Band
 export function changeBand(band) {
   const id = band.id
-  return (
-    request
-      .patch(rootUrl + `/band/edit/${id}`)
-      // .patch(rootUrl + `/band/edit`)
-      .send({ band })
-      .then((res) => {
-        res.body
-      })
-      .catch(errorHandler('PATCH', rootUrl + `/band/edit/${id}`))
-  )
+  return request
+    .patch(rootUrl + `/band/edit/${id}`)
+    .send({ band })
+    .then((res) => {
+      return res.body
+    })
+    .catch(errorHandler('PATCH', rootUrl + `/band/edit/${id}`))
 }
 
 function errorHandler(method, route) {
