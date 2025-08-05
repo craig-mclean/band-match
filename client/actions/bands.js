@@ -44,13 +44,28 @@ export function deleteBand(band) {
 }
 
 // ------------------------------------------------------------
-// EDITING AN EXISTING BAND *** still a work in progress.  Needs a form at front end.
+// EDITING AN EXISTING BAND
 
 export function editBand(band) {
   return (dispatch) => {
-    return changeBand(band).then((updatedBand) => {
-      dispatch(updateBand(updatedBand))
-    })
+    // Only include the fields that exist in the database
+    const cleanBand = {
+      id: band.id,
+      name: band.name,
+      size: band.size,
+      genre_id: band.genre_id
+    }
+    console.log('editBand action - updating band:', cleanBand)
+    return changeBand(cleanBand)
+      .then((updatedBand) => {
+        console.log('editBand action - received updated band:', updatedBand)
+        dispatch(updateBand(updatedBand))
+        return updatedBand
+      })
+      .catch((error) => {
+        console.error('editBand action - error:', error)
+        throw error
+      })
   }
 }
 

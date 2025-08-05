@@ -33,13 +33,20 @@ export function deleteBandById(id) {
 // Update/Change Band
 export function changeBand(band) {
   const id = band.id
+  console.log('changeBand API - sending request to:', `/band/edit/${id}`)
+  console.log('changeBand API - band data:', band)
+  
   return request
-    .patch(rootUrl + `/band/edit/${id}`)
+    .patch(rootUrl + `/bands/band/edit/${id}`)
     .send({ band })
     .then((res) => {
+      console.log('changeBand API - response received:', res.body)
       return res.body
     })
-    .catch(errorHandler('PATCH', rootUrl + `/band/edit/${id}`))
+    .catch((err) => {
+      console.error('changeBand API - error:', err)
+      throw err
+    })
 }
 
 function errorHandler(method, route) {

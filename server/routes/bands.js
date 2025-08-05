@@ -20,7 +20,6 @@ router.post('/add', (req, res) => {
   console.log('routes - req.body:', req.body)
   db.addBand(band)
     .then(() => {
-      //const newId=ids[0]  ### if generating new id
       res.json({ ...band })
     })
     .catch((err) => {
@@ -31,15 +30,17 @@ router.post('/add', (req, res) => {
 
 router.patch('/band/edit/:id', (req, res) => {
   const updatedBand = req.body.band
+  console.log('routes - updating band:', updatedBand)
   db.changeBand(updatedBand)
     .then(() => {
       return db.getBandById(updatedBand.id)
     })
     .then((band) => {
+      console.log('routes - updated band:', band[0])
       res.json(band[0])
     })
     .catch((err) => {
-      console.error(err.message)
+      console.error('routes - error updating band:', err.message)
       res.status(500).json({ message: 'Something went wrong' })
     })
 })

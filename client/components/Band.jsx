@@ -44,18 +44,23 @@ function Band(props) {
 
   function handleEditSubmit(e) {
     e.preventDefault()
+    // Only include the fields that exist in the database
     const updatedBand = {
-      ...props,
+      id: props.id,
       name: editForm.name,
       size: editForm.size,
       genre_id: editForm.genre
     }
+    console.log('Submitting updated band:', updatedBand)
+    
     dispatch(editBand(updatedBand))
       .then(() => {
+        console.log('Band updated successfully')
         setIsEditing(false)
       })
       .catch((error) => {
         console.error('Error updating band:', error)
+        alert('Failed to update band. Please try again.')
       })
   }
 
