@@ -42,8 +42,7 @@ The application currently has the following features:
 * You can add a new Venue and save it to the database
 
 ## Known issues
-* Although a new venue can be added from the form and saved to the db, it is not being rendered by the Venues component
-* Rather than displaying the genre for a band, the genre_id is displayed
+* None at this point
 
 ## Testing
 Testing is a really important skill to develop. I have learnt about how to test different parts of the stack, using Jest, SuperTest, Nock and Testing Library, so I'm trying to practice this here, by implementing different types of tests.
@@ -60,6 +59,7 @@ So far I have set up tests for the following:
   - getGenre - returns the expected records from the seeded genre table in the test db 
 
 ## Future enhancements / Backlog
+* Need to be able to Edit a Venue
 * Testing - lots more testing!
 * New venue is rendered along with existing Venues
 * Setup deleteVenues api and route and confirm using Insomnia

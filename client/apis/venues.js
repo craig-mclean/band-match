@@ -44,12 +44,12 @@ export function deleteVenueById(id) {
 export function changeVenue(venue) {
   const id = venue.id
   return request
-    .patch(rootUrl + `/venue/edit/${id}`)
+    .patch(rootUrl + `/venues/venue/edit/${id}`)
     .send({ venue })
     .then((res) => {
-      res.body
+      return res.body
     })
-    .catch(errorHandler('PATCH', rootUrl + `/venue/edit/${id}`))
+    .catch(errorHandler('PATCH', rootUrl + `/venues/venue/edit/${id}`))
 }
 
 function errorHandler(method, route) {

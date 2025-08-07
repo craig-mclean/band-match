@@ -48,7 +48,7 @@ export default function AddVenue() {
                 id="name"
                 name="name"
                 placeholder="Enter the name of your venue"
-                // className="input is-primary "
+                className="input is-fullwidth"
                 required
                 value={name}
                 onChange={handleChange}
@@ -66,7 +66,7 @@ export default function AddVenue() {
                 id="address"
                 name="address"
                 placeholder="Enter the address of your venue"
-                // className="input is-primary "
+                className="input is-fullwidth"
                 required
                 value={address}
                 onChange={handleChange}
@@ -84,7 +84,7 @@ export default function AddVenue() {
                 id="contact"
                 name="contact"
                 placeholder="Who is the contact person?"
-                // className="input is-primary "
+                className="input is-fullwidth"
                 required
                 value={contact}
                 onChange={handleChange}
@@ -98,11 +98,11 @@ export default function AddVenue() {
             </label>
             <div className="control">
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 placeholder="Enter a valid email address"
-                // className="input is-primary "
+                className="input is-fullwidth"
                 required
                 value={email}
                 onChange={handleChange}
@@ -110,20 +110,22 @@ export default function AddVenue() {
             </div>
           </div>
 
-          <label htmlFor="phone" className="label">
-            Phone number:
-          </label>
-          <div className="control">
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              placeholder="Enter a phone number"
-              // className="input is-primary "
-              required
-              value={phone}
-              onChange={handleChange}
-            />
+          <div className="field">
+            <label htmlFor="phone" className="label">
+              Phone number:
+            </label>
+            <div className="control">
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter a phone number"
+                className="input is-fullwidth"
+                required
+                value={phone}
+                onChange={handleChange}
+              />
+            </div>
           </div>
 
           <div className="field">
@@ -132,11 +134,11 @@ export default function AddVenue() {
             </label>
             <div className="control">
               <input
-                type="text"
+                type="url"
                 id="website"
                 name="website"
                 placeholder="Enter a valid website address"
-                // className="input is-primary "
+                className="input is-fullwidth"
                 required
                 value={website}
                 onChange={handleChange}
@@ -154,7 +156,7 @@ export default function AddVenue() {
                 id="size"
                 name="size"
                 placeholder="What size is the venue?"
-                // className="input is-primary "
+                className="input is-fullwidth"
                 required
                 value={size}
                 onChange={handleChange}

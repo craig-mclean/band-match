@@ -16,7 +16,9 @@ const reducer = (state = initialState, action) => {
       console.log('reducer - venues - SET_VENUES payload =', payload)
       return payload
     case UPDATE_VENUE:
-      return [...state, payload]
+      return state.map((venue) => 
+        venue.id === payload.id ? payload : venue
+      )
     case ADD_VENUE:
       console.log('reducer - venues - state =', state)
       console.log('reducer - venues - ADD_VENUE payload =', payload)
